@@ -7,11 +7,11 @@ import libro.prestamo.Tables.miembro;
 // Esta es la interfaz que debe implementar la clase MiembroServiceImplementar
 public interface MiembroServicio {
 
-    public List<Miembro> ListaMiembros();
+    public List<miembro> ListaMiembros();
 
-    public void addMiembro(Miembro miembro); // añadir
+    public void addMiembro(miembro miembro); // añadir
 
-    public void deleteMiembro(Miembro miembro); // eliminar
+    public void deleteMiembro(miembro miembro); // eliminar
 
-    public Miembro findMiembro(Miembro miembro); // buscar
+    public miembro findMiembro(miembro miembro); // buscar
 }

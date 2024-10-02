@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import libro.prestamo.Tables.miembro;
-import libro.prestamo.Servicio.MiembroService;
+import libro.prestamo.Servicio.MiembroServiceImp;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 public class ControllersREST {
 
     @Autowired
-    private MiembroService miembroService;
+    private MiembroServiceImp miembroService;
 
     // CRUD para miembros
     //Metodos para manejar las peticiones GET y POST
@@ -26,17 +26,17 @@ public class ControllersREST {
     @GetMapping("/miembros") // ver lista de miembros
     public Iterable<miembro> getAllMiembros() {
         log.info("********** GET inciado ****************************");
-        return MiembroService.ListaMiembros();
+        return miembroService.ListaMiembros();
     }
 
     @GetMapping("/IngresarMiembros") // poder ingresar miembros
-    public String IngresoLibros(Miembro miembro) {
+    public String IngresoLibros(miembro miembro) {
         log.info("********** GET inciado ****************************");
         return "Miembros";
     }
     
     @PostMapping("/AddMiembros") // guardar un nuevo miembro
-    public Miembro saveMiembro(Miembro miembro) {
+    public String saveMiembro(miembro miembro) {
         miembroService.addMiembro(miembro);
         log.info("********** POST inciado ****************************");
         return "redirect:/";

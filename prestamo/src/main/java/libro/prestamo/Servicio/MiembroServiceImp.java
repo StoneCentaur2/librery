@@ -16,15 +16,15 @@ public class MiembroServiceImp implements MiembroServicio{
 
     @Override
     @Transactional(readOnly = true)
-    public List<Miembro> ListaMiembros() {
+    public List<miembro> ListaMiembros() {
         // Implementación de la lista de miembros
         // Devuelve una lista de objetos Miembro
-        return (List<Miembro>) MiembroDao.findAll(); // Retono de lista con recasteo
+        return (List<miembro>) MiembroDao.findAll(); // Retono de lista con recasteo
     }
 
     @Override
     @Transactional
-    public void addMiembro(Miembro miembro) {
+    public void addMiembro(miembro miembro) {
         // Implementación para agregar un miembro a la lista
         // Recibe un objeto Miembro y lo agrega a la lista
         MiembroDao.save(miembro);
@@ -32,7 +32,7 @@ public class MiembroServiceImp implements MiembroServicio{
 
     @Override
     @Transactional
-    public void deleteMiembro(Miembro miembro) {
+    public void deleteMiembro(miembro miembro) {
         // Implementación para eliminar un miembro de la lista
         // Recibe un objeto Miembro y lo elimina de la lista
         MiembroDao.delete(miembro);
@@ -40,7 +40,7 @@ public class MiembroServiceImp implements MiembroServicio{
 
     @Override
     @Transactional(readOnly = true)
-    public Miembro findMiembro(miembro miembro) {
+    public miembro findMiembro(miembro miembro) {
         // Implementación para buscar un miembro de la lista
         // Recibe un objeto Miembro y actualiza su información en la lista
         return MiembroDao.findById(miembro.getIdMiembro()).orElse(null); // Retorno el objeto Miembro o null si no lo encuentra

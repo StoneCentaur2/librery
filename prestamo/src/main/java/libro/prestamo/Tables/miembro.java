@@ -12,7 +12,7 @@ public class miembro implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Generated(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMiembro;
     private String Nombre;
     private String Direccion;
